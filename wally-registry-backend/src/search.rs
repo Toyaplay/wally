@@ -99,6 +99,11 @@ impl SearchBackend {
                 .unwrap()
                 .to_str()
                 .unwrap();
+
+            if package_scope.contains(".") {
+                continue;
+            }
+
             let package_name = path.file_name().unwrap().to_str().unwrap();
 
             let metadata = package_index
